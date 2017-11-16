@@ -1,0 +1,29 @@
+{
+  "name": "meting",
+  "version": "1.0.0",
+  "description": "Wow, such a beautiful html5 music player (with Meting API)",
+  "main": "dist/Meting.min.js",
+  "scripts": {
+    "build": "babel src/Meting.js -o dist/Meting.min.js"
+  },
+  "repository": {
+    "url": "git+https://github.com/metowolf/MetingJS.git",
+    "type": "git"
+  },
+  "keywords": [
+    "player",
+    "music",
+    "api",
+    "meting",
+    "html5"
+  ],
+  "author": "metowolf",
+  "license": "MIT",
+  "homepage": "https://github.com/metowolf/MetingJS",
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-env": "^1.6.1",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-minify": "^0.2.0"
+  }
+}
