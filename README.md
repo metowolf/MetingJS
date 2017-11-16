@@ -17,6 +17,7 @@ https://cdn.jsdelivr.net/npm/meting/dist/Meting.min.js
 ## Quick Start
 ```html
 <script src="https://cdnjs.cloudflare.com/ajax/libs/aplayer/1.6.0/APlayer.min.js"></script>
+
 <div class="aplayer"
     data-id="60198"
     data-server="netease"
@@ -31,14 +32,16 @@ https://music.163.com/#/playlist?id=60198
 |option|default|description|
 |:-----|:-------------:|:----------|
 |data-id|**require**|song id / playlist id / album id / search keyword|
-|data-server|**require**|music platform: `netease`,`tencent`,`kugou`,`xiami`,`baidu`|
-|data-type|**require**|`song`,`playlist`,`album`,`search`,`artist`|
-|data-mode|`circulation`|play mode, `circulation`,`random`,`single`,`order`|
+|data-server|**require**|music platform: `netease`, `tencent`, `kugou`, `xiami`, `baidu`|
+|data-type|**require**|`song`, `playlist`, `album`, `search`, `artist`|
+|data-mode|`circulation`|play mode, `circulation`, `random`, `single`, `order`|
 |data-autoplay|`false`|autoplay song(s), not supported by mobile browsers|
-|data-mutex|`false`|pause other players when this player playing|
-|data-listmaxheight|`false`|max height of play list|
-|data-preload|`340px`|max height of play list|
+|data-mutex|`true`|pause other players when this player playing|
+|data-listmaxheight|`340px`|max height of play list|
+|data-preload|`auto`|the way to load music, can be `none`, `metadata`, `auto`|
 |data-theme|`#ad7a86`|theme color|
+
+more https://aplayer.js.org/docs/#/?id=options
 
 ## Advanced
 
@@ -50,3 +53,9 @@ var meting_api='http://example.com/api.php?server=:server&type=:type&id=:id&r=:r
 </script>
 <script src="dist/Meting.min.js"></script>
 ```
+
+## Author
+
+**MetingJS** © [metowolf](https://github.com/metowolf), Released under the [MIT](./LICENSE) License.<br>
+
+> Blog [@meto](https://i-meto.com) · GitHub [@metowolf](https://github.com/metowolf) · Twitter [@metowolf](https://twitter.com/metowolf) · Telegram Channel [@metooooo](https://t.me/metooooo)
