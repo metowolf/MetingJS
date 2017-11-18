@@ -13,8 +13,8 @@
 https://github.com/MoePlayer/APlayer
 
 ## CDN
-https://cdn.jsdelivr.net/npm/meting/dist/Meting.min.js
-https://unpkg.com/meting@1.0.0/dist/Meting.min.js
+https://cdn.jsdelivr.net/npm/meting/dist/Meting.min.js  
+https://unpkg.com/meting/dist/Meting.min.js
 
 ## Quick Start
 ```html
