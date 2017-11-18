@@ -1,7 +1,7 @@
-console.log("\n %c MetingJS 1.0.0 %c https://github.com/metowolf/MetingJS \n\n", "color: #fff; background-image: linear-gradient(90deg, rgb(47, 172, 178) 0%, rgb(45, 190, 96) 100%); padding:5px 1px;", "background-image: linear-gradient(90deg, rgb(45, 190, 96) 0%, rgb(255, 255, 255) 100%); padding:5px 0;");
+console.log("\n %c MetingJS 1.0.1 %c https://github.com/metowolf/MetingJS \n\n", "color: #fff; background-image: linear-gradient(90deg, rgb(47, 172, 178) 0%, rgb(45, 190, 96) 100%); padding:5px 1px;", "background-image: linear-gradient(90deg, rgb(45, 190, 96) 0%, rgb(255, 255, 255) 100%); padding:5px 0;");
 
 let aplayers = [];
-(() => {
+document.addEventListener('DOMContentLoaded', function(event){
     let api = 'https://api.i-meto.com/meting/api?server=:server&type=:type&id=:id&r=:r';
     if (typeof meting_api !== 'undefined') api = meting_api;
 
@@ -54,4 +54,4 @@ let aplayers = [];
         op.theme = setting.theme || "#ad7a86";
         aplayers.push(new APlayer(op));
     }
-})();
+}, false);

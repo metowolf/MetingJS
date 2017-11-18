@@ -3,8 +3,9 @@
 </p>
 
 <p align="center">
-<img alt="Author" src="https://img.shields.io/badge/Author-METO-blue.svg?style=flat-square"/>
+<a href="https://i-meto.com"><img alt="Author" src="https://img.shields.io/badge/Author-METO-blue.svg?style=flat-square"/></a>
 <a href="https://www.npmjs.com/package/meting"><img alt="Version" src="https://img.shields.io/npm/v/meting.svg?style=flat-square"/></a>
+<a href="https://travis-ci.org/metowolf/MetingJS"><img alt="Travis" src="https://img.shields.io/travis/metowolf/MetingJS.svg?style=flat-square"></a>
 <img alt="License" src="https://img.shields.io/npm/l/meting.svg?style=flat-square"/>
 </p>
 
@@ -13,6 +14,7 @@ https://github.com/MoePlayer/APlayer
 
 ## CDN
 https://cdn.jsdelivr.net/npm/meting/dist/Meting.min.js
+https://unpkg.com/meting@1.0.0/dist/Meting.min.js
 
 ## Quick Start
 ```html
