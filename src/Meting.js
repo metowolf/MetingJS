@@ -1,12 +1,22 @@
-console.log("\n %c MetingJS 1.0.1 %c https://github.com/metowolf/MetingJS \n\n", "color: #fff; background-image: linear-gradient(90deg, rgb(47, 172, 178) 0%, rgb(45, 190, 96) 100%); padding:5px 1px;", "background-image: linear-gradient(90deg, rgb(45, 190, 96) 0%, rgb(255, 255, 255) 100%); padding:5px 0;");
+console.log("\n %c MetingJS 1.0.2 %c https://github.com/metowolf/MetingJS \n\n", "color: #fff; background-image: linear-gradient(90deg, rgb(47, 172, 178) 0%, rgb(45, 190, 96) 100%); padding:5px 1px;", "background-image: linear-gradient(90deg, rgb(45, 190, 96) 0%, rgb(255, 255, 255) 100%); padding:5px 0;");
 
 let aplayers = [];
-document.addEventListener('DOMContentLoaded', function(event){
+let loadMeting = () => {
     let api = 'https://api.i-meto.com/meting/api?server=:server&type=:type&id=:id&r=:r';
     if (typeof meting_api !== 'undefined') api = meting_api;
 
+    for (let i = 0; i < aplayers.length; i++) {
+        try {
+            aplayers[i].destroy();
+        } catch(e){
+            console.log(e);
+        }
+    }
+    aplayers = [];
+
     let elements = document.querySelectorAll(".aplayer");
-    for (const el of elements) {
+    for (let i = 0; i < elements.length; i++) {
+        const el = elements[i];
         let id = el.dataset.id;
         if (id) {
             let url=api;
@@ -27,7 +37,7 @@ document.addEventListener('DOMContentLoaded', function(event){
             xhr.open('get', url, true);
             xhr.send(null);
 
-        } else {
+        } else if (el.dataset.url) {
             let data = [{
                 title : el.dataset.title,
                 author : el.dataset.author,
@@ -54,4 +64,6 @@ document.addEventListener('DOMContentLoaded', function(event){
         op.theme = setting.theme || "#ad7a86";
         aplayers.push(new APlayer(op));
     }
-}, false);
+}
+
+document.addEventListener('DOMContentLoaded', loadMeting, false);

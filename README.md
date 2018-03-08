@@ -10,7 +10,7 @@
 </p>
 
 ## Requirement
-https://github.com/MoePlayer/APlayer
+https://github.com/MoePlayer/APlayer (~1.6.0)
 
 ## CDN
 https://cdn.jsdelivr.net/npm/meting/dist/Meting.min.js  
@@ -28,6 +28,16 @@ https://unpkg.com/meting/dist/Meting.min.js
 <script src="dist/Meting.min.js"></script>
 ```
 https://music.163.com/#/playlist?id=60198
+
+```html
+<div class="aplayer"
+    data-title="rainymood"
+    data-author="rainymood"
+    data-url="https://rainymood.com/audio1110/0.m4a"
+    data-pic="https://rainymood.com/i/badge.jpg">
+</div>
+```
+for self-hosted media
 
 ## Option
 
