@@ -1,11 +1,14 @@
 {
   "name": "meting",
-  "version": "1.0.2",
+  "version": "1.1.0",
   "description": "Wow, such a beautiful html5 music player (with Meting API)",
   "main": "dist/Meting.min.js",
   "scripts": {
-    "build": "BABEL_ENV=production babel src/Meting.js -o dist/Meting.min.js",
-    "test": "babel src/Meting.js -o dist/Meting.min.js"
+    "dev": "npm run development",
+    "development": "babel src/Meting.js -o dist/Meting.min.js",
+    "prod": "npm run production",
+    "production": "BABEL_ENV=production babel src/Meting.js -o dist/Meting.min.js",
+    "test": "npm run production"
   },
   "repository": {
     "url": "git+https://github.com/metowolf/MetingJS.git",

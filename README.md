@@ -10,59 +10,83 @@
 </p>
 
 ## Requirement
-https://github.com/MoePlayer/APlayer (~1.6.0)
+
+https://github.com/MoePlayer/APlayer
+
+|Version|API Status|APlayer|
+|---|---|---|
+|1.0.x|Compatibility (2018.04.01 EOL)|[![](https://img.shields.io/badge/APlayer-^1.6.0-red.svg?longCache=true&style=for-the-badge)](https://github.com/MoePlayer/APlayer/tree/1.6.0)|
+|1.1.x|Latest|[![](https://img.shields.io/badge/APlayer-^1.7.0-green.svg?longCache=true&style=for-the-badge)](https://github.com/MoePlayer/APlayer)|
 
 ## CDN
-https://cdn.jsdelivr.net/npm/meting/dist/Meting.min.js  
-https://unpkg.com/meting/dist/Meting.min.js
+ - [jsDelivr](https://www.jsdelivr.com/package/npm/meting)
+ - [unpkg](https://unpkg.com/meting/)
 
 ## Quick Start
 ```html
-<script src="https://cdnjs.cloudflare.com/ajax/libs/aplayer/1.6.0/APlayer.min.js"></script>
+<!-- require APlayer -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@1.7.0/dist/APlayer.min.css">
+<script src="https://cdn.jsdelivr.net/npm/aplayer@1.7.0/dist/APlayer.min.js"></script>
 
 <div class="aplayer"
     data-id="60198"
     data-server="netease"
     data-type="playlist">
 </div>
+
 <script src="dist/Meting.min.js"></script>
 ```
 https://music.163.com/#/playlist?id=60198
 
 ```html
+<!-- require APlayer -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@1.7.0/dist/APlayer.min.css">
+<script src="https://cdn.jsdelivr.net/npm/aplayer@1.7.0/dist/APlayer.min.js"></script>
+
 <div class="aplayer"
-    data-title="rainymood"
-    data-author="rainymood"
+    data-name="rainymood"
+    data-artist="rainymood"
     data-url="https://rainymood.com/audio1110/0.m4a"
-    data-pic="https://rainymood.com/i/badge.jpg">
+    data-cover="https://rainymood.com/i/badge.jpg">
 </div>
+
+<script src="dist/Meting.min.js"></script>
 ```
 for self-hosted media
 
 ## Option
 
-|option|default|description|
-|:-----|:-------------:|:----------|
-|data-id|**require**|song id / playlist id / album id / search keyword|
-|data-server|**require**|music platform: `netease`, `tencent`, `kugou`, `xiami`, `baidu`|
-|data-type|**require**|`song`, `playlist`, `album`, `search`, `artist`|
-|data-mode|`circulation`|play mode, `circulation`, `random`, `single`, `order`|
-|data-autoplay|`false`|autoplay song(s), not supported by mobile browsers|
-|data-mutex|`true`|pause other players when this player playing|
-|data-listmaxheight|`340px`|max height of play list|
-|data-preload|`auto`|the way to load music, can be `none`, `metadata`, `auto`|
-|data-theme|`#ad7a86`|theme color|
+|option               |default      |description|
+|:--------------------|:------------:|:----------|
+|data-id              |**require**   |song id / playlist id / album id / search keyword|
+|data-server          |**require**   |music platform: `netease`, `tencent`, `kugou`, `xiami`, `baidu`|
+|data-type            |**require**   |`song`, `playlist`, `album`, `search`, `artist`|
+|data-mini            |`false`       |enable mini mode|
+|data-autoplay        |`false`       |audio autoplay|
+|data-theme           |`#2980b9`     |main color|
+|data-loop            |`all`         |player loop play, values: 'all', 'one', 'none'|
+|data-order           |`list`        |player play order, values: 'list', 'random'|
+|data-preload         |`auto`        |values: 'none', 'metadata', 'auto'|
+|data-volume          |`0.7`         |default volume, notice that player will remember user setting, default volume will not work after user set volume themselves|
+|data-mutex           |`true`        |prevent to play multiple player at the same time, pause other players when this player start play|
+|data-lrc             |`false`       |enable mini mode|
+|data-list-folded     |`false`       |indicate whether list should folded at first|
+|data-list-max-height |`340px`       |list max height|
+|~~data-mode~~        |**deprecated**|Instead `data-loop`, `data-order` should be used|
 
-more https://aplayer.js.org/docs/#/?id=options
+Documentation for APlayer can be found at https://aplayer.js.org/#/home?id=options
+
+ > note: because of JavaScript rules, `data-listFolded` should be rewrite as `data-list-folded`
 
 ## Advanced
 
-Use self music API, see also https://github.com/metowolf/Meting
+MetingJS allow you to use self-hosted API, [more information about Meting](https://github.com/metowolf/Meting).
 
 ```html
 <script>
-var meting_api='http://example.com/api.php?server=:server&type=:type&id=:id&r=:r';
+var meting_api='http://example.com/api.php?server=:server&type=:type&id=:id&auth=:auth&r=:r';
 </script>
+
 <script src="dist/Meting.min.js"></script>
 ```
 
