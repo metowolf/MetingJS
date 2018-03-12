@@ -19,14 +19,14 @@ https://github.com/MoePlayer/APlayer
 |1.1.x|Latest|[![](https://img.shields.io/badge/APlayer-^1.7.0-green.svg?longCache=true&style=for-the-badge)](https://github.com/MoePlayer/APlayer)|
 
 ## CDN
- - [jsDelivr](https://www.jsdelivr.com/package/npm/meting)
- - [unpkg](https://unpkg.com/meting/)
+ - [jsDelivr](https://cdn.jsdelivr.net/npm/meting@1.1/dist/Meting.min.js)
+ - [unpkg](https://unpkg.com/meting@1.1/dist/Meting.min.js)
 
 ## Quick Start
 ```html
 <!-- require APlayer -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@1.7.0/dist/APlayer.min.css">
-<script src="https://cdn.jsdelivr.net/npm/aplayer@1.7.0/dist/APlayer.min.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@1.7/dist/APlayer.min.css">
+<script src="https://cdn.jsdelivr.net/npm/aplayer@1.7/dist/APlayer.min.js"></script>
 
 <div class="aplayer"
     data-id="60198"
@@ -40,8 +40,8 @@ https://music.163.com/#/playlist?id=60198
 
 ```html
 <!-- require APlayer -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@1.7.0/dist/APlayer.min.css">
-<script src="https://cdn.jsdelivr.net/npm/aplayer@1.7.0/dist/APlayer.min.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@1.7/dist/APlayer.min.css">
+<script src="https://cdn.jsdelivr.net/npm/aplayer@1.7/dist/APlayer.min.js"></script>
 
 <div class="aplayer"
     data-name="rainymood"

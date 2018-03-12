@@ -1,4 +1,4 @@
-console.log(`\n %c MetingJS 1.1.0 %c https://github.com/metowolf/MetingJS \n\n`, `color: #fadfa3; background: #030307; padding:5px 0;`, `background: #fadfa3; padding:5px 0;`);
+console.log(`\n %c MetingJS 1.1.1 %c https://github.com/metowolf/MetingJS \n\n`, `color: #fadfa3; background: #030307; padding:5px 0;`, `background: #fadfa3; padding:5px 0;`);
 
 let aplayers = [];
 let loadMeting = () => {
@@ -70,6 +70,9 @@ let loadMeting = () => {
         for (const defaultKey in options) {
             if (options.hasOwnProperty(defaultKey) && element.dataset.hasOwnProperty(defaultKey)) {
                 options[defaultKey] = element.dataset[defaultKey];
+                if (options[defaultKey] === 'true' || options[defaultKey] === 'false') {
+                    options[defaultKey] = (options[defaultKey] == 'true');
+                }
             }
         }
 
@@ -77,8 +80,7 @@ let loadMeting = () => {
             return;
         }
 
-        if (options.mini === 'true') {
-            options.mini = true;
+        if (options.mini === true) {
             options.lrc = 0;
             options.listFolded = true;
         }
