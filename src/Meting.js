@@ -8,7 +8,7 @@ let loadMeting = () => {
     for (let i = 0; i < aplayers.length; i++) {
         try {
             aplayers[i].destroy();
-        } catch(e){
+        } catch (e) {
             console.log(e);
         }
     }
@@ -55,6 +55,7 @@ let loadMeting = () => {
             container: element,
             audio: music,
             mini: false,
+            fixed: false,
             autoplay: false,
             mutex: true,
             lrc: 3,
