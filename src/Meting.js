@@ -8,7 +8,7 @@ let loadMeting = () => {
     for (let i = 0; i < aplayers.length; i++) {
         try {
             aplayers[i].destroy();
-        } catch(e){
+        } catch (e) {
             console.log(e);
         }
     }
@@ -55,9 +55,11 @@ let loadMeting = () => {
             container: element,
             audio: music,
             mini: false,
+            fixed: false,
             autoplay: false,
             mutex: true,
             lrc: 3,
+            listFolded: false,
             preload: 'auto',
             theme: '#2980b9',
             loop: 'all',
@@ -68,8 +70,9 @@ let loadMeting = () => {
         };
 
         for (const defaultKey in options) {
-            if (options.hasOwnProperty(defaultKey) && element.dataset.hasOwnProperty(defaultKey)) {
-                options[defaultKey] = element.dataset[defaultKey];
+            let eleKey = defaultKey.toLowerCase();
+            if (options.hasOwnProperty(defaultKey) && element.dataset.hasOwnProperty(eleKey)) {
+                options[defaultKey] = element.dataset[eleKey];
                 if (options[defaultKey] === 'true' || options[defaultKey] === 'false') {
                     options[defaultKey] = (options[defaultKey] == 'true');
                 }
