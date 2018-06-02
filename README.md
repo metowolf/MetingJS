@@ -15,18 +15,19 @@ https://github.com/MoePlayer/APlayer
 
 |Version|API Status|APlayer|
 |---|---|---|
-|1.0.x|Compatibility (2018.04.01 EOL)|[![](https://img.shields.io/badge/APlayer-^1.6.0-red.svg?longCache=true&style=for-the-badge)](https://github.com/MoePlayer/APlayer/tree/1.6.0)|
-|1.1.x|Latest|[![](https://img.shields.io/badge/APlayer-^1.7.0-green.svg?longCache=true&style=for-the-badge)](https://github.com/MoePlayer/APlayer)|
+|1.0.x|Deprecated|[![](https://img.shields.io/badge/APlayer-^1.6.0-red.svg?longCache=true&style=for-the-badge)](https://github.com/MoePlayer/APlayer/tree/1.6.0)|
+|1.1.x|Compatibility|[![](https://img.shields.io/badge/APlayer-^1.7.0-green.svg?longCache=true&style=for-the-badge)](https://github.com/MoePlayer/APlayer/tree/1.7.0)|
+|1.2.x|Latest|[![](https://img.shields.io/badge/APlayer-^1.10.0-green.svg?longCache=true&style=for-the-badge)](https://github.com/MoePlayer/APlayer)|
 
 ## CDN
- - [jsDelivr](https://cdn.jsdelivr.net/npm/meting@1.1/dist/Meting.min.js)
- - [unpkg](https://unpkg.com/meting@1.1/dist/Meting.min.js)
+ - https://cdn.jsdelivr.net/npm/meting@1.2/dist/Meting.min.js
+ - https://unpkg.com/meting@1.2/dist/Meting.min.js
 
 ## Quick Start
 ```html
 <!-- require APlayer -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@1.7/dist/APlayer.min.css">
-<script src="https://cdn.jsdelivr.net/npm/aplayer@1.7/dist/APlayer.min.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@1.10/dist/APlayer.min.css">
+<script src="https://cdn.jsdelivr.net/npm/aplayer@1.10/dist/APlayer.min.js"></script>
 
 <div class="aplayer"
     data-id="60198"
@@ -39,20 +40,26 @@ https://github.com/MoePlayer/APlayer
 https://music.163.com/#/playlist?id=60198
 
 ```html
-<!-- require APlayer -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@1.7/dist/APlayer.min.css">
-<script src="https://cdn.jsdelivr.net/npm/aplayer@1.7/dist/APlayer.min.js"></script>
-
 <div class="aplayer"
     data-name="rainymood"
     data-artist="rainymood"
     data-url="https://rainymood.com/audio1110/0.m4a"
     data-cover="https://rainymood.com/i/badge.jpg">
 </div>
-
-<script src="dist/Meting.min.js"></script>
 ```
 for self-hosted media
+
+```html
+<div class="aplayer"
+    data-name="广东珠江经济电台"
+    data-artist="FM97.4"
+    data-url="http://lhttp.qingting.fm/live/1259/64k.mp3"
+    data-cover="http://pic.qingting.fm/2015/0209/20150209212831195.jpg!200"
+    data-fixed="true">
+</div>
+```
+Fixed mode
+
 
 ## Option
 
@@ -61,6 +68,7 @@ for self-hosted media
 |data-id              |**require**   |song id / playlist id / album id / search keyword|
 |data-server          |**require**   |music platform: `netease`, `tencent`, `kugou`, `xiami`, `baidu`|
 |data-type            |**require**   |`song`, `playlist`, `album`, `search`, `artist`|
+|data-fixed           |`false`       |enable fixed mode|
 |data-mini            |`false`       |enable mini mode|
 |data-autoplay        |`false`       |audio autoplay|
 |data-theme           |`#2980b9`     |main color|
@@ -69,14 +77,13 @@ for self-hosted media
 |data-preload         |`auto`        |values: 'none', 'metadata', 'auto'|
 |data-volume          |`0.7`         |default volume, notice that player will remember user setting, default volume will not work after user set volume themselves|
 |data-mutex           |`true`        |prevent to play multiple player at the same time, pause other players when this player start play|
-|data-lrc             |`false`       |enable mini mode|
-|data-list-folded     |`false`       |indicate whether list should folded at first|
-|data-list-max-height |`340px`       |list max height|
+|data-lrctype         |`0`           |lyric type|
+|data-listfolded      |`false`       |indicate whether list should folded at first|
+|data-listmaxheight   |`340px`       |list max height|
+|data-storagename     |`metingjs`    |localStorage key that store player setting|
 |~~data-mode~~        |**deprecated**|Instead `data-loop`, `data-order` should be used|
 
 Documentation for APlayer can be found at https://aplayer.js.org/#/home?id=options
-
- > note: because of JavaScript rules, `data-listFolded` should be rewrite as `data-list-folded`
 
 ## Advanced
 

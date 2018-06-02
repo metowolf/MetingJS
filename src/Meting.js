@@ -1,4 +1,4 @@
-console.log(`\n %c MetingJS 1.1.1 %c https://github.com/metowolf/MetingJS \n\n`, `color: #fadfa3; background: #030307; padding:5px 0;`, `background: #fadfa3; padding:5px 0;`);
+console.log(`${'\n'} %c MetingJS v1.2.0 %c https://github.com/metowolf/MetingJS ${'\n'}`, 'color: #fadfa3; background: #030307; padding:5px 0;', 'background: #fadfa3; padding:5px 0;');
 
 let aplayers = [];
 let loadMeting = () => {
@@ -15,7 +15,8 @@ let loadMeting = () => {
     aplayers = [];
 
     let elements = document.querySelectorAll(".aplayer");
-    for (let i = 0; i < elements.length; i++) {
+
+    for (var i = 0; i < elements.length; i++) {
         const el = elements[i];
         let id = el.dataset.id;
         if (id) {
@@ -40,52 +41,56 @@ let loadMeting = () => {
 
         } else if (el.dataset.url) {
             let data = [{
-                name: el.dataset.name || el.dataset.title,
-                artist: el.dataset.artist || el.dataset.author,
+                name: el.dataset.name || el.dataset.title || 'Audio name',
+                artist: el.dataset.artist || el.dataset.author || 'Audio artist',
                 url: el.dataset.url,
                 cover: el.dataset.cover || el.dataset.pic,
-                lrc: el.dataset.lrc
+                lrc: el.dataset.lrc,
+                type: el.dataset.type || 'auto'
             }];
+
             build(el, data);
         }
     }
 
     function build(element, music) {
-        let options = {
+
+        let defaultOption = {
             container: element,
             audio: music,
-            mini: false,
-            fixed: false,
+            mini: null,
+            fixed: null,
             autoplay: false,
             mutex: true,
-            lrc: 3,
+            lrcType: 3,
             listFolded: false,
             preload: 'auto',
             theme: '#2980b9',
             loop: 'all',
             order: 'list',
-            volume: 0.7,
-            listFolded: false,
-            listMaxHeight: '340px'
+            volume: null,
+            listMaxHeight: null,
+            customAudioType: null,
+            storageName: 'metingjs'
         };
-
-        for (const defaultKey in options) {
-            let eleKey = defaultKey.toLowerCase();
-            if (options.hasOwnProperty(defaultKey) && element.dataset.hasOwnProperty(eleKey)) {
-                options[defaultKey] = element.dataset[eleKey];
-                if (options[defaultKey] === 'true' || options[defaultKey] === 'false') {
-                    options[defaultKey] = (options[defaultKey] == 'true');
-                }
-            }
-        }
 
         if (!music.length) {
             return;
         }
 
-        if (options.mini === true) {
-            options.lrc = 0;
-            options.listFolded = true;
+        if (!music[0].lrc) {
+            defaultOption['lrcType'] = 0;
+        }
+
+        let options = {};
+        for (const defaultKey in defaultOption) {
+            let eleKey = defaultKey.toLowerCase();
+            if (element.dataset.hasOwnProperty(eleKey) || element.dataset.hasOwnProperty(defaultKey) || defaultOption[defaultKey] !== null) {
+                options[defaultKey] = element.dataset[eleKey] || element.dataset[defaultKey] || defaultOption[defaultKey];
+                if (options[defaultKey] === 'true' || options[defaultKey] === 'false') {
+                    options[defaultKey] = (options[defaultKey] == 'true');
+                }
+            }
         }
 
         aplayers.push(new APlayer(options));
