@@ -6,10 +6,12 @@ let loadMeting = () => {
     if (typeof meting_api !== 'undefined') api = meting_api;
 
     for (let i = 0; i < aplayers.length; i++) {
-        try {
-            aplayers[i].destroy();
-        } catch (e) {
-            console.log(e);
+        if(!aplayers[i].container.classList.contains("no-destroy")){
+            try {
+                aplayers[i].destroy();
+            } catch (e) {
+                console.log(e);
+            }
         }
     }
     aplayers = [];
@@ -18,6 +20,8 @@ let loadMeting = () => {
 
     for (var i = 0; i < elements.length; i++) {
         const el = elements[i];
+        if(el.classList.contains("no-reload")) continue;
+	if(el.classList.contains("no-destroy")) el.classList.add("no-reload");
         let id = el.dataset.id;
         if (id) {
             let url = el.dataset.api || api;
