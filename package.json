@@ -1,33 +1,41 @@
 {
-  "name": "meting",
-  "version": "1.2.0",
-  "description": "Wow, such a beautiful html5 music player (with Meting API)",
-  "main": "dist/Meting.min.js",
-  "scripts": {
-    "dev": "npm run development",
-    "development": "babel src/Meting.js -o dist/Meting.min.js",
-    "prod": "npm run production",
-    "production": "BABEL_ENV=production babel src/Meting.js -o dist/Meting.min.js",
-    "test": "npm run production"
-  },
-  "repository": {
-    "url": "git+https://github.com/metowolf/MetingJS.git",
-    "type": "git"
-  },
-  "keywords": [
-    "player",
-    "music",
-    "api",
-    "meting",
-    "html5"
-  ],
-  "author": "metowolf",
-  "license": "MIT",
-  "homepage": "https://github.com/metowolf/MetingJS",
-  "devDependencies": {
-    "babel-cli": "^6.26.0",
-    "babel-minify": "^0.4.3",
-    "babel-preset-env": "^1.7.0",
-    "babel-preset-minify": "^0.4.3"
-  }
+ "name": "meting",
+ "version": "2.0.0",
+ "description": "Wow, such a beautiful html5 music player (with Meting API)",
+ "license": "MIT",
+ "homepage": "https://github.com/metowolf/MetingJS",
+ "repository": {
+  "url": "git+https://github.com/metowolf/MetingJS.git",
+  "type": "git"
+ },
+ "author": {
+  "name": "metowolf",
+  "email": "i@i-meto.com",
+  "url": "https://i-meto.com/"
+ },
+ "main": "dist",
+ "scripts": {
+  "lint": "eslint source",
+  "build": "del dist && mkdir dist && babel source/Meting.js -o dist/Meting.min.js",
+  "test": "npm run build",
+  "prepublishOnly": "npm run build"
+ },
+ "files": [
+  "dist"
+ ],
+ "keywords": [
+  "player",
+  "music",
+  "api",
+  "meting",
+  "html5"
+ ],
+ "devDependencies": {
+  "@babel/cli": "^7.2.3",
+  "@babel/core": "^7.3.3",
+  "@babel/preset-env": "^7.3.1",
+  "babel-preset-minify": "^0.5.0",
+  "del-cli": "^1.1.0",
+  "eslint": "^5.14.0"
+ }
 }
