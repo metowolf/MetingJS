@@ -30,14 +30,15 @@ class MetingJSElement extends HTMLElement {
       'auto', 'lock',
       'name', 'title', 'artist', 'author', 'url', 'cover', 'pic', 'lyric', 'lrc',
     ]
+    this.meta = {}
     for (let key of keys) {
-      this[key] = config[key]
+      this.meta[key] = config[key]
       delete config[key]
     }
     this.config = config
 
-    this.api = this.api || window.meting_api || 'https://api.i-meto.com/meting/api?server=:server&type=:type&id=:id&r=:r'
-    if (this.auto) this._parse_link()
+    this.api = this.meta.api || window.meting_api || 'https://api.i-meto.com/meting/api?server=:server&type=:type&id=:id&r=:r'
+    if (this.meta.auto) this._parse_link()
   }
 
   _parse_link() {
@@ -60,42 +61,42 @@ class MetingJSElement extends HTMLElement {
 
     for (let rule of rules) {
       let patt = new RegExp(rule[0])
-      let res = patt.exec(this.auto)
+      let res = patt.exec(this.meta.auto)
       if (res !== null) {
-        this.server = rule[1]
-        this.type = rule[2]
-        this.id = res[1]
+        this.meta.server = rule[1]
+        this.meta.type = rule[2]
+        this.meta.id = res[1]
         return
       }
     }
   }
 
   _parse() {
-    if (this.url) {
+    if (this.meta.url) {
       let result = {
-        name: this.name || this.title || 'Audio name',
-        artist: this.artist || this.author || 'Audio artist',
-        url: this.url,
-        cover: this.cover || this.pic,
-        lrc: this.lrc || this.lyric || '',
-        type: this.type || 'auto',
+        name: this.meta.name || this.meta.title || 'Audio name',
+        artist: this.meta.artist || this.meta.author || 'Audio artist',
+        url: this.meta.url,
+        cover: this.meta.cover || this.meta.pic,
+        lrc: this.meta.lrc || this.meta.lyric || '',
+        type: this.meta.type || 'auto',
       }
       if (!result.lrc) {
-        this.lrcType = 0
+        this.meta.lrcType = 0
       }
       if (this.innerText) {
         result.lrc = this.innerText
-        this.lrcType = 2
+        this.meta.lrcType = 2
       }
       this._loadPlayer([result])
       return
     }
 
     let url = this.api
-      .replace(':server', this.server)
-      .replace(':type', this.type)
-      .replace(':id', this.id)
-      .replace(':auth', this.auth)
+      .replace(':server', this.meta.server)
+      .replace(':type', this.meta.type)
+      .replace(':id', this.meta.id)
+      .replace(':auth', this.meta.auth)
       .replace(':r', Math.random())
 
     fetch(url)
@@ -108,7 +109,7 @@ class MetingJSElement extends HTMLElement {
     let defaultOption = {
       audio: data,
       mutex: true,
-      lrcType: this.lrcType || 3,
+      lrcType: this.meta.lrcType || 3,
       storageName: 'metingjs'
     }
 
@@ -133,7 +134,7 @@ class MetingJSElement extends HTMLElement {
 
 }
 
-console.log('\n %c MetingJS v2.0.0 %c https://github.com/metowolf/MetingJS \n', 'color: #fadfa3; background: #030307; padding:5px 0;', 'background: #fadfa3; padding:5px 0;')
+console.log('\n %c MetingJS v2.0.1 %c https://github.com/metowolf/MetingJS \n', 'color: #fadfa3; background: #030307; padding:5px 0;', 'background: #fadfa3; padding:5px 0;')
 
 if (window.customElements && !window.customElements.get('meting-js')) {
   window.MetingJSElement = MetingJSElement
