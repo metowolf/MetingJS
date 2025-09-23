@@ -35,7 +35,7 @@
   "@rollup/plugin-replace": "^6.0.2",
   "@rollup/plugin-terser": "^0.4.0",
   "del-cli": "^1.1.0",
-  "eslint": "^5.14.0",
+  "eslint": "^9.36.0",
   "rollup": "^4.0.0"
  }
 }
