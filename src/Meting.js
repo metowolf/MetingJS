@@ -1,15 +1,17 @@
 class MetingJSElement extends HTMLElement {
 
   connectedCallback() {
-    if (window.APlayer && window.fetch) {
+    if (window.APlayer && window.fetch && !this._initialized) {
+      this._initialized = true
       this._init()
       this._parse()
     }
   }
 
   disconnectedCallback() {
-    if (!this.lock) {
+    if (!this.lock && this.aplayer) {
       this.aplayer.destroy()
+      this._initialized = false
     }
   }
 
